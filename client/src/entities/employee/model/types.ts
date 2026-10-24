@@ -5,3 +5,4 @@ export type Employee = {
   workshopId: number
   workshopName: string
 }
+export type EmployeePayload = { fullName: string; position: string; workshopId: number }
