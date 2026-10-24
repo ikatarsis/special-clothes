@@ -9,7 +9,7 @@ export const AppHeader = () => {
         <NavLink className="shrink-0 text-[15px] font-extrabold tracking-[0.08em] text-gray-900 no-underline" to="/">
           СПЕЦОДЕЖДА
         </NavLink>
-        <nav aria-label="Основная навигация" className="flex min-w-0 self-stretch items-center gap-1 overflow-x-auto">
+        <nav aria-label="Основная навигация" className="flex min-w-0 self-stretch items-center gap-4 overflow-x-auto">
           {navigationItems.map((item) => (
             <NavLink
               className={({ isActive }) =>
