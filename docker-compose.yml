@@ -17,5 +17,24 @@ services:
       timeout: 5s
       retries: 10
 
+  php:
+    build:
+      context: ./server
+    container_name: special-clothes-api
+    restart: unless-stopped
+    environment:
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: ${POSTGRES_DB}
+      DB_USER: ${POSTGRES_USER}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "${PHP_PORT:-8080}:8080"
+    volumes:
+      - ./server:/var/www
+    depends_on:
+      postgres:
+        condition: service_healthy
+
 volumes:
   postgres_data:

@@ -11,8 +11,8 @@ node_modules/
 server/vendor/
 
 # Local environment variables
-.env.example
-.env.example
+.env
+.env.*
 !.env.example
 dist
 dist-ssr
