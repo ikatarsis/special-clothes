@@ -14,7 +14,9 @@ export const useDashboardIssuances = () => {
     try {
       setIssuances(await getIssuances())
     } catch (requestError) {
-      setError(requestError instanceof Error ? requestError.message : 'Не удалось загрузить выдачи.')
+      setError(
+        requestError instanceof Error ? requestError.message : 'Не удалось загрузить выдачи.',
+      )
     } finally {
       setIsLoading(false)
     }
@@ -31,7 +33,9 @@ export const useDashboardIssuances = () => {
       })
       .catch((requestError: unknown) => {
         if (isActive) {
-          setError(requestError instanceof Error ? requestError.message : 'Не удалось загрузить выдачи.')
+          setError(
+            requestError instanceof Error ? requestError.message : 'Не удалось загрузить выдачи.',
+          )
         }
       })
       .finally(() => {

@@ -9,3 +9,12 @@ export const createIssuance = (payload: CreateIssuancePayload) =>
     method: 'POST',
     body: JSON.stringify(payload),
   })
+
+export const updateIssuance = (id: number, payload: CreateIssuancePayload) =>
+  request<Issuance>(`/issuances/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify(payload),
+  })
+
+export const deleteIssuance = (id: number) =>
+  request<void>(`/issuances/${id}`, { method: 'DELETE' })

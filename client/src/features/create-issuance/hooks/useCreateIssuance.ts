@@ -11,7 +11,10 @@ const issuanceSchema = z.object({
   employeeId: z.coerce.number().int().positive('Выберите сотрудника.'),
   workwearId: z.coerce.number().int().positive('Выберите вид спецодежды.'),
   issuedOn: z.string().min(1, 'Укажите дату выдачи.'),
-  discountPercent: z.coerce.number().min(0, 'Скидка не может быть меньше 0%.').max(100, 'Скидка не может быть больше 100%.'),
+  discountPercent: z.coerce
+    .number()
+    .min(0, 'Скидка не может быть меньше 0%.')
+    .max(100, 'Скидка не может быть больше 100%.'),
 })
 
 type IssuanceFormValues = z.infer<typeof issuanceSchema>
@@ -50,7 +53,9 @@ export const useCreateIssuance = ({ onCreated }: UseCreateIssuanceParams) => {
       setEmployees(employeesData)
       setWorkwear(workwearData)
     } catch (error) {
-      setReferenceError(error instanceof Error ? error.message : 'Не удалось загрузить справочники.')
+      setReferenceError(
+        error instanceof Error ? error.message : 'Не удалось загрузить справочники.',
+      )
     } finally {
       setIsReferenceLoading(false)
     }

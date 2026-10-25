@@ -6,6 +6,4 @@ export const formatCurrency = (value: number | string) =>
   }).format(Number(value))
 
 export const formatDate = (value: string) =>
-  new Intl.DateTimeFormat('ru-RU', { timeZone: 'UTC' }).format(
-    new Date(`${value}T00:00:00Z`),
-  )
+  new Intl.DateTimeFormat('ru-RU', { timeZone: 'UTC' }).format(new Date(`${value}T00:00:00Z`))
